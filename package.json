@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.1.2",
+    "flat": "^1.6.0",
     "xlsx": "^0.8.0",
     "yargs": "^3.27.0"
   },
