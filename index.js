@@ -1,8 +1,9 @@
 #! /usr/bin/env node
 
 var colors = require('colors/safe');
+var yargs = require('yargs');
 
-var argv = require('yargs')
+var argv = yargs
   .usage('Usage: $0 <command> [options]')
   .command('xls2json', 'convert xls(x) file to multiple json locale files')
   .demand(3)
@@ -17,7 +18,13 @@ var argv = require('yargs')
 
 function main() {
   try {
-    require('./lib/' + argv._[0])(argv);
+    var commands = ['xls2json', 'json2xls'];
+
+    if (commands.indexOf(argv._[0]) >= 0) {
+      require('./lib/' + argv._[0])(argv);
+    } else {
+      yargs.showHelp();
+    }
   } catch(e) {
     console.error(colors.red(e));
   }
