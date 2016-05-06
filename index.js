@@ -24,7 +24,7 @@ function main() {
     var commands = ['xls2json', 'json2xls'];
 
     if (commands.indexOf(argv._[0]) >= 0) {
-      require('./lib/' + argv._[0])(argv);
+      require('./lib/cmd/' + argv._[0])(argv);
     } else {
       yargs.showHelp();
     }
